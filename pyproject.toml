@@ -1,0 +1,14 @@
+[project]
+name = "structure-formation"
+version = "0.1.0"
+description = "Structure Formation Tutorials using 21cmFAST"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "21cmfast",
+    "tuesday",
+]
+
+[tool.uv.sources]
+21cmfast = { git = "https://github.com/21cmFAST/21cmFAST" }
+tuesday = { git = "https://github.com/21cmfast/tuesday" }
