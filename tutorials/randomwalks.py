@@ -47,10 +47,12 @@ def sigma_to_M(sigma: np.ndarray | float) -> np.ndarray:
         result[i] = sol.root
     return result.squeeze()
 
-def M_to_sigma(M: np.ndarray | float) -> np.ndarray:
+def M_to_sigma(M: np.ndarray | float) -> np.ndarray | float:
     if isinstance(M, float):
         M = np.array([M])
-    return evaluate_sigma(inputs=default_p21c_inputs, masses=M)[0].squeeze()
+    
+    sigma, dsigma = evaluate_sigma(inputs=default_p21c_inputs, masses=M)
+    return sigma.squeeze()
 
 def random_steps_sharpk(
     sigma_arr: np.ndarray,
