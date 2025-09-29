@@ -131,6 +131,8 @@ def random_steps_gaussian(
 def get_crossing_points(
     delta_arr: np.ndarray,
     barrier: np.ndarray,
+    sigma_arr: np.ndarray,
+    mass_arr: np.ndarray,
 ):
     """
     Calculate halo masses given a random walk.
@@ -145,7 +147,10 @@ def get_crossing_points(
         np.argmax(delta_arr[:,:,None] > barrier[None,:,:], axis=1),
         -1,
     )
-    return crossing_points
+    
+    halo_masses = np.where(crossing_points==-1,np.nan,mass_arr[crossing_points])
+    halo_sigma = np.where(crossing_points==-1,np.nan,sigma_arr[crossing_points])
+    return halo_masses, halo_sigma, crossing_points
 
 def plot_walks(
         *,
