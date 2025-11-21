@@ -19,4 +19,15 @@ The course textbook (in prep) is a [PDF here](/course_notes.pdf).
 
 ## Contributing
 
-please do.
+The best way to setup to write docs is to install the common environment using
+
+```bash
+uv sync
+```
+
+To install `uv` see [their documentation](https://docs.astral.sh/uv/getting-started/installation/),
+which generally boils down to:
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
